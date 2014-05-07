@@ -5,9 +5,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="cn.cowboy.dao.UserMapping">
 	<resultMap type="cn.cowboy.domain.User" id="User">
 		<id column="" property="" jdbcType="INTEGER" />
-		<result column="User_id" property="User_id" jdbcType="VARCHAR" />
-		<result column="User_name" property="User_name" jdbcType="VARCHAR" />
-		<result column="Register_date" property="Register_date"
+		<result column="User_id" property="userId" jdbcType="VARCHAR" />
+		<result column="User_name" property="userName" jdbcType="VARCHAR" />
+		<result column="Register_date" property="regDate"
 			jdbcType="TIMESTAMP" />
 		<result column="Passwd" property="Passwd" jdbcType="VARCHAR" />
 		<result column="Name" property="Name" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addUser" parameterType="cn.cowboy.domain.User">
 		insert into t_sys_user(<include refid="basin"/>)
 		 values(
-			#{User_name},#{Register_date},#{Passwd},#{Name},#{Phone},#{Email},#{stat}
+			#{userName},#{regDate},#{Passwd},#{Name},#{Phone},#{Email},#{stat}
 		)
 	</insert>
 </mapper>
