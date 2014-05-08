@@ -20,8 +20,8 @@ public class UserDaoTest {
 	public void test1(){
 		User user = new User();
 		user.setName("wujianyuan5");
-		user.setUser_name("heheheh5");
-		user.setRegister_date(new Date());
+		user.setName("heheheh5");
+		user.setRegDate(new Date());
 		user.setPasswd("123456");
 		int a = userService.addUser(user);
 	}

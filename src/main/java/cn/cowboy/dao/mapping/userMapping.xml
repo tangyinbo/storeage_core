@@ -22,11 +22,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		User_name,Register_date,Passwd,Name,Phone,Email,stat
 	</sql>
 	<select id="selectAllUser" resultMap="User">
-		SELECT <include refid="basic"/> FROM t_sys_user
+		SELECT <include refid="basic"/> FROM users
 	</select>
 	
 	<insert id="addUser" parameterType="cn.cowboy.domain.User">
-		insert into t_sys_user(<include refid="basin"/>)
+		insert into users(<include refid="basin"/>)
 		 values(
 			#{userName},#{regDate},#{Passwd},#{Name},#{Phone},#{Email},#{stat}
 		)
