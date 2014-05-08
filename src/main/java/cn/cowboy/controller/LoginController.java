@@ -22,6 +22,7 @@ public class LoginController {
 	private static Logger log = LoggerFactory.getLogger(LoginController.class);
 	@RequestMapping("/login")
 	public String login(User user,ModelMap model){
+		//hehe 唐音波
 		Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
 		SecurityManager securityManager = factory.getInstance();
 		SecurityUtils.setSecurityManager(securityManager);
