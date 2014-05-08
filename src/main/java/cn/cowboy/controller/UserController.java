@@ -26,8 +26,8 @@ public class UserController {
 		//List<User> users = userService.getAllUser();
 		User user = new User();
 		user.setName("wujianyuan4");
-		user.setUser_name("heheheh4");
-		user.setRegister_date(new Date());
+		user.setName("heheheh4");
+		user.setRegDate(new Date());
 		user.setPasswd("123456");
 		userService.addUser(user);
 		return "first";
