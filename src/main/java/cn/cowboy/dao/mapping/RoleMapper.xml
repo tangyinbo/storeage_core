@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cowboy.dao.UserMapper">
+	<resultMap type="Roles" id="Role">
+		<id column="id" property="roleId" jdbcType="INTEGER" />
+		<result column="role" property="RoleName" jdbcType="VARCHAR" />
+		<result column="description" property="description" jdbcType="VARCHAR" />
+		<result column="available" property="available" jdbcType="Boolean" />
+	</resultMap>
+	<sql id="basic">
+		id,<include refid="basin"/>
+	</sql>
+	<sql id="basin">
+		role,description,available
+	</sql>
+	<select id="selectAllRoles" resultMap="Roles">
+		SELECT <include refid="basic"/> FROM sys_users
+	</select>
+	
+	<insert id="addRoles" parameterType="Roles">
+		insert into sys_roles(<include refid="basin"/>)
+		 values(
+			#{RoleName},#{description},#{available}
+		)
+	</insert>
+</mapper>

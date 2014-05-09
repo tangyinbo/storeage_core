@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.cowboy.domain.User;
+import cn.cowboy.domain.User2;
 import cn.cowboy.service.UserService;
 
 
@@ -25,10 +26,8 @@ public class UserController {
 	public String first(){
 		//List<User> users = userService.getAllUser();
 		User user = new User();
-		user.setName("wujianyuan4");
-		user.setName("heheheh4");
-		user.setRegDate(new Date());
-		user.setPasswd("123456");
+		user.setUserName("wujianyuan5");
+		user.setPassword("123456");
 		userService.addUser(user);
 		return "first";
 	}

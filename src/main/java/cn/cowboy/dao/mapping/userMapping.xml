@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.cowboy.dao.UserMapping">
-	<resultMap type="cn.cowboy.domain.User" id="User">
+	<resultMap type="User" id="User">
 		<id column="" property="" jdbcType="INTEGER" />
 		<result column="User_id" property="userId" jdbcType="VARCHAR" />
 		<result column="User_name" property="userName" jdbcType="VARCHAR" />
@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT <include refid="basic"/> FROM users
 	</select>
 	
-	<insert id="addUser" parameterType="cn.cowboy.domain.User">
+	<insert id="addUser" parameterType="User">
 		insert into users(<include refid="basin"/>)
 		 values(
 			#{userName},#{regDate},#{Passwd},#{Name},#{Phone},#{Email},#{stat}

@@ -1,98 +1,68 @@
 package cn.cowboy.domain;
 
-import java.util.Date;
-
+/**
+ * 
+* @ClassName: User
+* @Description: 用户实体类
+* @author Tangyinbo
+* @date 2014-5-9 下午3:06:10
+*
+ */
 public class User {
 	private Integer userId;
 	private String userName;
-	private Date regDate;
-	private String Passwd;
-	private String Name;
-	private String Phone;
-	private String Email;
-	private String stat;
+	private String password;
+	private String salt;
+	private boolean locked;
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Integer getUserId() {
-		return userId;
-	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public Date getRegDate() {
-		return regDate;
-	}
-
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
-	}
-
-	public String getPasswd() {
-		return Passwd;
-	}
-
-	public void setPasswd(String passwd) {
-		Passwd = passwd;
-	}
-
-	public String getName() {
-		return Name;
-	}
-
-	public void setName(String name) {
-		Name = name;
-	}
-
-	public String getPhone() {
-		return Phone;
-	}
-
-	public void setPhone(String phone) {
-		Phone = phone;
-	}
-
-	public String getEmail() {
-		return Email;
-	}
-
-	public void setEmail(String email) {
-		Email = email;
-	}
-
-	public String getStat() {
-		return stat;
-	}
-
-	public void setStat(String stat) {
-		this.stat = stat;
-	}
-
-	public User(Integer userId, String userName, Date regDate, String passwd, String name, String phone, String email, String stat) {
+	public User(Integer userId, String userName, String password, String salt, boolean locked) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
-		this.regDate = regDate;
-		Passwd = passwd;
-		Name = name;
-		Phone = phone;
-		Email = email;
-		this.stat = stat;
+		this.password = password;
+		this.salt = salt;
+		this.locked = locked;
 	}
 
-	public String toString() {
-		return "User_id:"+userId+"User_name:"+userName+"Register_date:"+regDate+"Passwd:"+Passwd+"Name:"+Name+"Phone:"+Phone+"Email:"+Email+"stat:"+stat;
+	public Integer getUserId() {
+		return userId;
 	}
-};
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	
+	public String toString(){
+		return this.userName+":"+this.password+":"+this.salt;
+	}
+
+	public boolean isLocked() {
+		return locked;
+	}
+
+	public void setLocked(boolean locked) {
+		this.locked = locked;
+	}
+	
+}

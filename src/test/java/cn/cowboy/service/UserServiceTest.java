@@ -1,28 +1,23 @@
-package cn.cowboy.dao;
-
-import java.util.Date;
+package cn.cowboy.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import cn.cowboy.domain.User2;
-import cn.cowboy.service.UserService;
+import cn.cowboy.parent.BaseTest;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:spring.xml","classpath:spring-mybatis.xml"})
-public class UserDaoTest {
+public class UserServiceTest{
 	@Autowired
 	private UserService userService;
+	
 	@Test
 	public void test1(){
-		User2 user = new User2();
-		user.setName("wujianyuan5");
-		user.setName("heheheh5");
-		user.setRegDate(new Date());
-		user.setPasswd("123456");
-		//int a = userService.addUser(user);
+		System.out.println("========>>>"+userService);
 	}
 }

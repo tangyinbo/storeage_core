@@ -32,6 +32,7 @@
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="mapperLocations" value="classpath:cn/cowboy/dao/mapping/*.xml"></property>
 		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:configuration.xml"></property>
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

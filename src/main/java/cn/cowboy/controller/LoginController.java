@@ -15,13 +15,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cn.cowboy.domain.User;
+import cn.cowboy.domain.User2;
 
 @Controller
 public class LoginController {
 	private static Logger log = LoggerFactory.getLogger(LoginController.class);
 	@RequestMapping("/login")
-	public String login(User user,ModelMap model){
+	public String login(User2 user,ModelMap model){
 		//hehe 唐音波
 		Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
 		SecurityManager securityManager = factory.getInstance();
