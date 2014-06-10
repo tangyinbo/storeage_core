@@ -1,5 +1,7 @@
 package cn.cowboy.service.impl;
 
+import java.util.Set;
+
 import org.apache.shiro.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,54 +15,45 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserMapper userMapper;
 
-
 	@Override
-	public int addUser(User user) {
-		int a =  userMapper.addUser(user);
-		return a;
+	public User createUser(User user) {
+		userMapper.addUser(user);
+		return user;
 	}
 
 
 	@Override
-	public int deleteUser(User user) {
-		String userId = user.getUserId()+"";
-		int effects =0;
-		if(StringUtils.hasLength(userId)){
-			effects= userMapper.deleteUserById(userId);
-			return effects;
-		}
+	public void changePassword(Long userId, String newPassword) {
 		
-		String userName = user.getUserName();
-		
-		if(StringUtils.hasText(userName)){
-			effects = userMapper.deleteUserByUserName(userName);
-			return effects;
-		}
-		return effects;
 	}
 
 
 	@Override
-	public int lockUser(User user) {
-		String userId = user.getUserId()+"";
-		int effects =0;
-		if(StringUtils.hasLength(userId)){
-			effects= userMapper.lockUserById(userId);
-			return effects;
-		}
+	public void correlationRoles(Long userId, Long... roleIds) {
 		
-		String userName = user.getUserName();
-		
-		if(StringUtils.hasText(userName)){
-			effects = userMapper.lockUserByName(userName);
-			return effects;
-		}
-		return effects;
 	}
 
 
 	@Override
-	public User getUser(String userName) {
-		return userMapper.getUserByName(userName);
+	public void uncorrelationRoles(Long userId, Long... roleIds) {
+		
+	}
+
+
+	@Override
+	public User findByUsername(String username) {
+		return null;
+	}
+
+
+	@Override
+	public Set<String> findRoles(String username) {
+		return null;
+	}
+
+
+	@Override
+	public Set<String> findPermissions(String username) {
+		return null;
 	}
 }

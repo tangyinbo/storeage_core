@@ -65,4 +65,8 @@ public class User {
 		this.stat = stat;
 	}
 
+	public String getCredentialsSalt() {
+		return this.userName+this.salt;
+	}
+
 }
