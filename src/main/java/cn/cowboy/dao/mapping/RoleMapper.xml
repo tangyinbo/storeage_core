@@ -2,25 +2,25 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.cowboy.dao.UserMapper">
-	<resultMap type="Roles" id="Role">
+<mapper namespace="cn.cowboy.dao.RoleMapper">
+	<resultMap type="Roles" id="Roles">
 		<id column="role_id" property="roleId" jdbcType="INTEGER" />
 		<result column="role" property="RoleName" jdbcType="VARCHAR" />
 		<result column="description" property="description" jdbcType="VARCHAR" />
 		<result column="stat" property="stat" jdbcType="VARCHAR" />
 	</resultMap>
-	<sql id="basic">
-		id,<include refid="basin"/>
+	<sql id="base_role">
+		id,<include refid="basin_role"/>
 	</sql>
-	<sql id="basin">
+	<sql id="basin_role">
 		role,description,stat
 	</sql>
 	<select id="selectAllRoles" resultMap="Roles">
-		SELECT <include refid="basic"/> FROM t_sys_roles
+		SELECT <include refid="base_role"/> FROM t_sys_roles
 	</select>
 	
 	<insert id="addRoles" parameterType="Roles">
-		insert into t_sys_roles(<include refid="basin"/>)
+		insert into t_sys_roles(<include refid="basin_role"/>)
 		 values(
 			#{RoleName},#{description},#{stat}
 		)

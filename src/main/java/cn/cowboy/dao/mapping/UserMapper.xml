@@ -10,18 +10,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="salt" property="salt" jdbcType="VARCHAR" />
 		<result column="stat" property="stat" jdbcType="VARCHAR" />
 	</resultMap>
-	<sql id="basic">
-		id,<include refid="basin"/>
+	<sql id="base_users">
+		id,username,password,salt,stat
 	</sql>
-	<sql id="basin">
+	<sql id="basin_users">
 		username,password,salt,stat
 	</sql>
 	<select id="selectAllUser" resultMap="User">
-		SELECT <include refid="basic"/> FROM t_sys_users
+		SELECT <include refid="base_users"/> FROM t_sys_users
 	</select>
 	
 	<insert id="addUser" parameterType="User">
-		insert into t_sys_users(<include refid="basin"/>)
+		insert into t_sys_users(<include refid="basin_users"/>)
 		 values(
 			#{userName},#{password},#{salt},#{stat}
 		)
@@ -45,7 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 获取用户 -->
 	<select id="getUserByName" parameterType="string" resultMap="User">
-		SELECT <include refid="basic"/> FROM  t_sys_users u
+		SELECT <include refid="base_users"/> FROM  t_sys_users u
 		where u.username=#{userName}
 	</select>
 </mapper>
