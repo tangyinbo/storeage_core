@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.cowboy.domain.User;
-import cn.cowboy.domain.User2;
 import cn.cowboy.service.UserService;
 
 

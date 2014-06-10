@@ -13,19 +13,19 @@ public class User {
 	private String userName;
 	private String password;
 	private String salt;
-	private boolean locked;
+	private String stat;
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(Integer userId, String userName, String password, String salt, boolean locked) {
+	public User(Integer userId, String userName, String password, String salt, String stat) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.password = password;
 		this.salt = salt;
-		this.locked = locked;
+		this.stat = stat;
 	}
 
 	public Integer getUserId() {
@@ -57,12 +57,12 @@ public class User {
 		return this.userName+":"+this.password+":"+this.salt;
 	}
 
-	public boolean isLocked() {
-		return locked;
+	public String getStat() {
+		return stat;
 	}
 
-	public void setLocked(boolean locked) {
-		this.locked = locked;
+	public void setStat(String stat) {
+		this.stat = stat;
 	}
-	
+
 }

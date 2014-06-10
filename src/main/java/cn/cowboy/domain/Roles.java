@@ -4,18 +4,20 @@ public class Roles {
 	private Integer roleId;
 	private String RoleName;
 	private String description;
-	private boolean available;
+	private String stat;
 	public Roles() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Roles(Integer roleId, String roleName, String description, boolean available) {
+
+	public Roles(Integer roleId, String roleName, String description, String stat) {
 		super();
 		this.roleId = roleId;
 		RoleName = roleName;
 		this.description = description;
-		this.available = available;
+		this.stat = stat;
 	}
+
 	public Integer getRoleId() {
 		return roleId;
 	}
@@ -34,11 +36,12 @@ public class Roles {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public boolean isAvailable() {
-		return available;
+
+	public String getStat() {
+		return stat;
 	}
-	public void setAvailable(boolean available) {
-		this.available = available;
+
+	public void setStat(String stat) {
+		this.stat = stat;
 	}
-	
 }

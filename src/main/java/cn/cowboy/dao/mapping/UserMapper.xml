@@ -8,44 +8,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="username" property="userName" jdbcType="VARCHAR" />
 		<result column="password" property="password" jdbcType="VARCHAR" />
 		<result column="salt" property="salt" jdbcType="VARCHAR" />
-		<result column="locked" property="locked" jdbcType="BOOLEAN" />
+		<result column="stat" property="stat" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="basic">
 		id,<include refid="basin"/>
 	</sql>
 	<sql id="basin">
-		username,password,salt,locked
+		username,password,salt,stat
 	</sql>
 	<select id="selectAllUser" resultMap="User">
-		SELECT <include refid="basic"/> FROM sys_users
+		SELECT <include refid="basic"/> FROM t_sys_users
 	</select>
 	
 	<insert id="addUser" parameterType="User">
-		insert into sys_users(<include refid="basin"/>)
+		insert into t_sys_users(<include refid="basin"/>)
 		 values(
-			#{userName},#{password},#{salt},#{locked}
+			#{userName},#{password},#{salt},#{stat}
 		)
 	</insert>
 	
 	<!-- 删除用户 -->
 	<delete id="deleteUserById" parameterType="string">
-		DELETE from sys_users u where u.id=#{userId}
+		DELETE from t_sys_users u where u.id=#{userId}
 	</delete>
 	<delete id="deleteUserByUserName" parameterType="string">
-		DELETE from sys_users u where u.username=#{userName}
+		DELETE from t_sys_users u where u.username=#{userName}
 	</delete>
 	
 	<!-- 锁定用户 -->
 	<update id="lockUserById" parameterType="string">
-		UPDATE sys_users u SET u.locked=0 where u.id = #{userId}
+		UPDATE t_sys_users u SET u.locked=0 where u.id = #{userId}
 	</update>
 	<update id="lockUserByUserName" parameterType="string">
-		UPDATE sys_users u SET u.locked=0 where u.id = #{userName}
+		UPDATE t_sys_users u SET u.locked=0 where u.id = #{userName}
 	</update>
 	
 	<!-- 获取用户 -->
 	<select id="getUserByName" parameterType="string" resultMap="User">
-		SELECT <include refid="basic"/> FROM  sys_users u
+		SELECT <include refid="basic"/> FROM  t_sys_users u
 		where u.username=#{userName}
 	</select>
 </mapper>

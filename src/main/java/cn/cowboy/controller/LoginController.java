@@ -15,19 +15,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cn.cowboy.domain.User2;
+import cn.cowboy.domain.User;
 
 @Controller
 public class LoginController {
 	private static Logger log = LoggerFactory.getLogger(LoginController.class);
 	@RequestMapping("/login")
-	public String login(User2 user,ModelMap model){
+	public String login(User user,ModelMap model){
 		//hehe 唐音波
 		Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
 		SecurityManager securityManager = factory.getInstance();
 		SecurityUtils.setSecurityManager(securityManager);
 		Subject subject = SecurityUtils.getSubject();
-		UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), user.getPasswd());
+		UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), user.getPassword());
 		try{
 			subject.login(token);
 		}catch(Exception e){
