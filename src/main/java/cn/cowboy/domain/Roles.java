@@ -44,4 +44,8 @@ public class Roles {
 	public void setStat(String stat) {
 		this.stat = stat;
 	}
+	@Override
+	public String toString() {
+		return this.RoleName+":"+this.description+":"+this.stat;
+	}
 }

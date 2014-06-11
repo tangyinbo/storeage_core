@@ -1,5 +1,9 @@
 package cn.cowboy.dao;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import cn.cowboy.domain.User;
 /**
  * 
@@ -12,17 +16,17 @@ import cn.cowboy.domain.User;
 public interface UserMapper {
 	public int addUser(User user);
 
-	public int deleteUserById(String userId);
-
-	public int deleteUserByUserName(String userName);
-
-	public int lockUserById(String userId);
-
-	public int lockUserByName(String userName);
-
-	public User getUserByName(String userName);
-
 	public User getById(Integer userId);
 
 	public void updateUser(User user);
+
+	public void correlationRoles(List<Map<String, Integer>> formatUerRoles);
+
+	public void uncorrelationRoles(List<Map<String, Integer>> formatUerRoles);
+
+	public User findByUsername(String username);
+
+	public Set<String> findPermissions(String username);
+
+	public Set<String> findRoles(String username);
 }

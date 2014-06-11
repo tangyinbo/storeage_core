@@ -16,9 +16,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<sql id="basin_users">
 		username,password,salt,stat
 	</sql>
-	<select id="selectAllUser" resultMap="User">
-		SELECT <include refid="base_users"/> FROM t_sys_users
-	</select>
 	
 	<insert id="addUser" parameterType="User">
 		insert into t_sys_users(<include refid="basin_users"/>)
@@ -26,28 +23,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{userName},#{password},#{salt},#{stat}
 		)
 	</insert>
-	
-	<!-- 删除用户 -->
-	<delete id="deleteUserById" parameterType="string">
-		DELETE from t_sys_users u where u.user_id=#{userId}
-	</delete>
-	<delete id="deleteUserByUserName" parameterType="string">
-		DELETE from t_sys_users u where u.username=#{userName}
-	</delete>
-	
-	<!-- 锁定用户 -->
-	<update id="lockUserById" parameterType="string">
-		UPDATE t_sys_users u SET u.locked=0 where u.user_id = #{userId}
-	</update>
-	<update id="lockUserByUserName" parameterType="string">
-		UPDATE t_sys_users u SET u.locked=0 where u.user_id = #{userName}
-	</update>
-	
-	<!-- 获取用户 -->
-	<select id="getUserByName" parameterType="string" resultMap="User">
-		SELECT <include refid="base_users"/> FROM  t_sys_users u
-		where u.username=#{userName}
-	</select>
 	
 	<select id="getById" parameterType="int" resultMap="User">
 			SELECT <include refid="base_users"/> FROM  t_sys_users u
@@ -57,4 +32,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateUser" parameterType="User">
 		UPDATE t_sys_users u SET u.password=#{password} where u.user_id = #{userId}
 	</update>
+	
+	<insert id="correlationRoles" parameterType="java.util.List">
+		insert into t_sys_userrole values
+		<foreach collection="list" item="item" separator=",">
+			( #{item.userId},#{item.roleId} )
+		</foreach>
+	</insert>
+	
+	<delete id="uncorrelationRoles" parameterType="java.util.List">
+		delete from t_sys_userrole where
+		<foreach collection="list" item="item" separator="or">
+			( user_id=#{item.userId} and role_id=#{item.roleId} )
+		</foreach>
+	</delete>
+	
+	<!-- 获取用户 -->
+	<select id="findByUsername" parameterType="string" resultMap="User">
+		SELECT <include refid="base_users"/> FROM  t_sys_users u
+		where u.username=#{userName}
+	</select>
+	
+	<select id="findPermissions" parameterType="string" resultType="string">
+		select p.permission from t_sys_users u left join t_sys_userrole ur on u.user_id = ur.user_id
+									left join t_sys_rolepriv rp on ur.role_id = rp.role_id
+									left join t_sys_priv p on rp.priv_id = p.priv_id
+		where u.username=#{userName} 
+	</select>
+	
+	<select id="findRoles" parameterType="string" resultType="string">
+	SELECT role FROM t_sys_roles r where exists(
+			SELECT role_id from t_sys_userrole ur where ur.user_id = (
+				select user_id FROM t_sys_users where username=#{userName}
+			) and ur.role_id = r.role_id
+		)
+	</select>
+	
 </mapper>

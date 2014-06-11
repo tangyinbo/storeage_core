@@ -8,7 +8,7 @@ package cn.cowboy.domain;
 *
  */
 public class Permission {
-	private Integer priv_id;
+	private Integer privId;
 	private String permission;
 	private String description;
 	private String stat;
@@ -16,18 +16,18 @@ public class Permission {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Permission(Integer priv_id, String permission, String description, String stat) {
+	public Permission(Integer privId, String permission, String description, String stat) {
 		super();
-		this.priv_id = priv_id;
+		this.privId = privId;
 		this.permission = permission;
 		this.description = description;
 		this.stat = stat;
 	}
-	public Integer getPriv_id() {
-		return priv_id;
+	public Integer getprivId() {
+		return privId;
 	}
-	public void setPriv_id(Integer priv_id) {
-		this.priv_id = priv_id;
+	public void setprivId(Integer privId) {
+		this.privId = privId;
 	}
 	public String getPermission() {
 		return permission;
