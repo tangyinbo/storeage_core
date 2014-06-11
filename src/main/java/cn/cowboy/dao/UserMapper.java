@@ -21,4 +21,8 @@ public interface UserMapper {
 	public int lockUserByName(String userName);
 
 	public User getUserByName(String userName);
+
+	public User getById(Integer userId);
+
+	public void updateUser(User user);
 }

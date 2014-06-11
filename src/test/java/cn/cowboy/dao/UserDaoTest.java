@@ -17,5 +17,6 @@ public class UserDaoTest {
 	private UserService userService;
 	@Test
 	public void test1(){
+		System.out.println(userService);
 	}
 }

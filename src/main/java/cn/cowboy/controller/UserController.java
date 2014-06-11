@@ -27,7 +27,7 @@ public class UserController {
 		User user = new User();
 		user.setUserName("wujianyuan5");
 		user.setPassword("123456");
-		userService.addUser(user);
+		userService.createUser(user);
 		return "first";
 	}
 }
