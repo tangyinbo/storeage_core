@@ -10,6 +10,13 @@ public class Roles {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Roles(String roleName, String description, String stat) {
+		super();
+		RoleName = roleName;
+		this.description = description;
+		this.stat = stat;
+	}
+
 	public Roles(Integer roleId, String roleName, String description, String stat) {
 		super();
 		this.roleId = roleId;
@@ -46,6 +53,6 @@ public class Roles {
 	}
 	@Override
 	public String toString() {
-		return this.RoleName+":"+this.description+":"+this.stat;
+		return this.roleId+":"+this.RoleName+":"+this.description+":"+this.stat;
 	}
 }

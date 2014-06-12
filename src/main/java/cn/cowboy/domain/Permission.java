@@ -16,6 +16,14 @@ public class Permission {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Permission(String permission, String description, String stat) {
+		super();
+		this.permission = permission;
+		this.description = description;
+		this.stat = stat;
+	}
+
 	public Permission(Integer privId, String permission, String description, String stat) {
 		super();
 		this.privId = privId;

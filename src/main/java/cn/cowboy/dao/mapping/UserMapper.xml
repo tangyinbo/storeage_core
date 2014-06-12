@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		username,password,salt,stat
 	</sql>
 	
-	<insert id="addUser" parameterType="User">
+	<insert id="addUser" useGeneratedKeys="true" keyProperty="userId" parameterType="User">
 		insert into t_sys_users(<include refid="basin_users"/>)
 		 values(
 			#{userName},#{password},#{salt},#{stat}
@@ -54,7 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="findPermissions" parameterType="string" resultType="string">
-		select p.permission from t_sys_users u left join t_sys_userrole ur on u.user_id = ur.user_id
+		select p.permission from t_sys_users u inner join t_sys_userrole ur on u.user_id = ur.user_id
 									left join t_sys_rolepriv rp on ur.role_id = rp.role_id
 									left join t_sys_priv p on rp.priv_id = p.priv_id
 		where u.username=#{userName} 

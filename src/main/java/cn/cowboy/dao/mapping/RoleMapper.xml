@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM t_sys_roles
 	</select>
 
-	<insert id="createRole" parameterType="Roles">
+	<insert id="createRole" useGeneratedKeys="true" keyProperty="roleId" parameterType="Roles">
 		insert into t_sys_roles(
 		<include refid="basin_role" />
 		)

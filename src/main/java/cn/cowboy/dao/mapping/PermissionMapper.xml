@@ -15,10 +15,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<sql id="basin_priv">
 		permission,description,stat
 	</sql>
-	<select id="createPermission" parameterType="Permission">
+	<insert id="createPermission" useGeneratedKeys="true" keyProperty="privId"  parameterType="Permission">
 		insert into t_sys_priv(<include refid="basin_priv"/>) 
 		values(#{permission},#{description},#{stat})
-	</select>
+	</insert>
 	
 	<insert id="deletePermission" parameterType="int">
 		delete from t_sys_priv  where priv_id=#{privId}

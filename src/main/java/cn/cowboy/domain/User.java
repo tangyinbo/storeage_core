@@ -13,7 +13,7 @@ public class User {
 	private String userName;
 	private String password;
 	private String salt;
-	private String stat;
+	private String stat="S0A";
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -26,6 +26,11 @@ public class User {
 		this.password = password;
 		this.salt = salt;
 		this.stat = stat;
+	}
+
+	public User(String username, String password) {
+		this.userName = username;
+		this.password = password;
 	}
 
 	public Integer getUserId() {

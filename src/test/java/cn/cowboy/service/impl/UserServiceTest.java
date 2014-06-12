@@ -48,7 +48,7 @@ public class UserServiceTest extends BaseTest{
 	
 	@Test
 	public void testfindPermissions(){
-		Set<String> set=userService.findPermissions("tangyinbo");
+		Set<String> set=userService.findPermissions("wu");
 		System.out.println(set);
 	}
 }

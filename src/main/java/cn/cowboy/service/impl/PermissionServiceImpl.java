@@ -22,7 +22,8 @@ public class PermissionServiceImpl implements PermissionService {
 
 	@Override
 	public Permission createPermission(Permission permission) {
-		return permissionMapper.createPermission(permission);
+		permissionMapper.createPermission(permission);
+		return permission;
 	}
 
 	@Override
