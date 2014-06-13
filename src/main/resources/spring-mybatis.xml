@@ -12,6 +12,10 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd
         ">
 	<context:property-placeholder location="classpath:jdbc.properties" />
+	
+	<!-- 开启AOP监听 只对当前配置文件有效 -->
+	<aop:aspectj-autoproxy expose-proxy="true" />
+	
 	<!-- 配置 数据源 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${jdbc.driver}"></property>

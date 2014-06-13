@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${name }
-	${age }
-	${sex }
-	${pageContext.request.contextPath }
+	欢迎${subject.principal} 哈哈
 </body>
 </html>

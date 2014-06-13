@@ -10,6 +10,7 @@ import org.apache.shiro.util.Factory;
 import org.apache.shiro.util.ThreadContext;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -115,4 +116,7 @@ public class BaseTest {
 		return SecurityUtils.getSubject();
 	}
 
+	public void initData(){
+		System.out.println("init data");
+	}
 }
