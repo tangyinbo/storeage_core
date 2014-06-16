@@ -55,7 +55,7 @@ public class LoginController {
 		if(StringUtils.hasLength(msg)){
 			model.addAttribute("msg", msg);
 		}else{
-			dest="main";
+			dest="index";
 		}
 		return dest;
 	}

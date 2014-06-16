@@ -3,6 +3,7 @@ package cn.cowboy.controller;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@RequiresPermissions(value="system:user:first2")
 	@RequestMapping("/first")
 	public String first(){
 		//List<User> users = userService.getAllUser();

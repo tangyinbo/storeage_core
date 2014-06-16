@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	你是谁啊
+	您没有权限访问
 </body>
 </html>

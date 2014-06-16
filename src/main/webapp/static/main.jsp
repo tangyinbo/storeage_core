@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	你是谁啊
+	欢迎${subject.principal} 哈哈
 </body>
 </html>

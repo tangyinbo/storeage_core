@@ -19,7 +19,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath }/login">
+	<form action="${pageContext.request.contextPath }/login" method="post">
 		username:<input type="text" name="userName"></br> password:<input
 			type="passwd" name="password"></br> <input type="submit"
 			value="login" />
