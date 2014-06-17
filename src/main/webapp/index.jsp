@@ -79,7 +79,7 @@
 								class="label">${fn:length(priv.subPriv)}</span> </a>
 							<ul>
 								<c:forEach items="${priv.subPriv}" var="subPriv">
-									<li><a href="form-common.html">${subPriv.privName }</a></li>
+									<li><a href="${subPriv.privUrl }" target="main_container">${subPriv.privName }</a></li>
 								</c:forEach>
 							</ul></li>
 					</c:when>
@@ -114,18 +114,19 @@
 		</div>
     <!--  面包屑导航-->
 		<div id="breadcrumb">
-			<a href="#" title="Go to Home" class="tip-bottom"><i
+			<a href="#" title="导航" class="tip-bottom"><i
 				class="icon-home"></i> Home</a> <a href="#" class="current">Dashboard</a>
 		</div>
-        <div class="container-fluid">
-            <div class="row-fluid">
-                 <div class="span12 center" style="text-align: center;">
+        <div class="container-fluid" >
+            <div class="row-fluid" style="min-height: 500px">
+                 <div class="span12 center" style="text-align: center;" >
+                 	<iframe name="main_container" src="/storeage_core/main.jsp"  scrolling="no"  width="100%" height="auto" frameborder="0"></iframe>
                  </div>
             </div>
 			<div class="row-fluid">
 				<div id="footer" class="span12">
-					2012 &copy; Unicorn Admin. Brought to you by <a
-						href="https://wrapbootstrap.com/user/diablo9983">diablo9983</a>
+					2014 &copy; mysystem <a
+						href="https://wrapbootstrap.com/user/diablo9983">hello boy</a>
 				</div>
 			</div>
          </div>

@@ -33,9 +33,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 获取菜单quanxian -->
 	<select id="getPrivs" parameterType="int" resultMap="Permission">
-		select * from t_sys_priv tt where tt.parent_priv =#{privId}
+		select * from t_sys_priv tt where tt.parent_priv =#{privId} and tt.type='menu'
 		union all
 		select t1.* from t_sys_priv t inner join t_sys_priv t1 on t1.parent_priv =
-		t.priv_id and t.parent_priv=#{privId}
+		t.priv_id and t.parent_priv=#{privId} and t.type='menu'
 	</select>
 </mapper>

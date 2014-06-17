@@ -29,16 +29,16 @@ public class PermissionServiceTest extends BaseTest{
 	
 	@Test
 	public void testAddPriv(){
-		//11->用户管理->system:user:creat->/sys/user/create->0->S0A
+		//7->根目录->system->/system->null->S0A
 		Permission priv =null;
-		for(int i=1;i<5;i++){
+		//for(int i=1;i<5;i++){
 			priv = new Permission();
-			priv.setDescription("用户管理"+i);
-			priv.setPermission("system:user:creat"+i);
-			priv.setParentPriv(11);
-			priv.setPrivUrl("/sys/user/create"+i);
+			priv.setDescription("用户管理列表");
+			priv.setPermission("system:user:list");
+			priv.setPrivUrl("/system/user/list");
+			priv.setParentPriv(8);
 			permissionService.createPermission(priv);
 			System.out.println(priv);
-		}
+		//}
 	}
 }
