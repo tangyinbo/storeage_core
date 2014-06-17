@@ -5,22 +5,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="cn.cowboy.dao.PermissionMapper">
 	<resultMap type="Permission" id="Permission">
 		<id column="priv_id" property="privId" jdbcType="INTEGER"></id>
-		<result column="permission" property="permission" jdbcType="VARCHAR"/>
-		<result column="description" property="description" jdbcType="VARCHAR"/>
-		<result column="stat" property="stat" jdbcType="VARCHAR"/>
+		<result column="permission" property="permission" jdbcType="VARCHAR" />
+		<result column="description" property="description" jdbcType="VARCHAR" />
+		<result column="stat" property="stat" jdbcType="VARCHAR" />
+		<result column="parent_priv" property="parentPriv" jdbcType="INTEGER" />
+		<result column="priv_url" property="privUrl" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="base_priv">
-		priv_id,<include refid="basin_priv"/>
+		priv_id,
+		<include refid="basin_priv" />
 	</sql>
 	<sql id="basin_priv">
-		permission,description,stat
+		permission,description,stat,parent_priv,priv_url
 	</sql>
-	<insert id="createPermission" useGeneratedKeys="true" keyProperty="privId"  parameterType="Permission">
-		insert into t_sys_priv(<include refid="basin_priv"/>) 
-		values(#{permission},#{description},#{stat})
+	<insert id="createPermission" useGeneratedKeys="true"
+		keyProperty="privId" parameterType="Permission">
+		insert into t_sys_priv(
+		<include refid="basin_priv" />
+		)
+		values(#{permission},#{description},#{stat},#{parentPriv},#{privUrl})
 	</insert>
-	
+
 	<insert id="deletePermission" parameterType="int">
-		delete from t_sys_priv  where priv_id=#{privId}
+		delete from
+		t_sys_priv where priv_id=#{privId}
 	</insert>
+
+	<!-- 获取菜单quanxian -->
+	<select id="getPrivs" parameterType="int" resultMap="Permission">
+		select * from t_sys_priv tt where tt.parent_priv =#{privId}
+		union all
+		select t1.* from t_sys_priv t inner join t_sys_priv t1 on t1.parent_priv =
+		t.priv_id and t.parent_priv=#{privId}
+	</select>
 </mapper>

@@ -27,7 +27,18 @@ public class PermissionServiceTest extends BaseTest{
 		permissionService.deletePermission(2);
 	}
 	
-	public void test3(){
-		
+	@Test
+	public void testAddPriv(){
+		//11->用户管理->system:user:creat->/sys/user/create->0->S0A
+		Permission priv =null;
+		for(int i=1;i<5;i++){
+			priv = new Permission();
+			priv.setDescription("用户管理"+i);
+			priv.setPermission("system:user:creat"+i);
+			priv.setParentPriv(11);
+			priv.setPrivUrl("/sys/user/create"+i);
+			permissionService.createPermission(priv);
+			System.out.println(priv);
+		}
 	}
 }

@@ -1,6 +1,9 @@
 package cn.cowboy.controller;
 
+import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -8,33 +11,37 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.config.IniSecurityManagerFactory;
-import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
-import org.apache.shiro.util.Factory;
 import org.apache.shiro.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import sun.swing.StringUIClientPropertyKey;
-
 import cn.cowboy.domain.User;
+import cn.cowboy.provide.utils.WebSessionUtils;
+import cn.cowboy.service.PermissionService;
 
 @Controller
 public class LoginController {
 	private static Logger log = LoggerFactory.getLogger(LoginController.class);
-
+	
+	@Autowired
+	private PermissionService permissionService;
+	
 	@RequestMapping("/login")
-	public String login(User user, ModelMap model) {
+	public String login(User user, ModelMap model,HttpServletRequest request) {
 		Subject subject = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), user.getPassword());
 		String msg = "";
 		String dest ="login";
 		try {
 			subject.login(token);
+			//权限数据放入session中
+			List<Map<String,Object>> privs = permissionService.getPrivs();
+			WebSessionUtils.saveAttribute(request, "menuPriv", privs);
 		} catch (UnknownAccountException e) {
 			log.error("用户名不存在", e);
 			msg = "用户名/密码错误";

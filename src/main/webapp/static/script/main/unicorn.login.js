@@ -6,6 +6,9 @@ $(document).ready(function(){
 
 	var login = $('#loginform');
 	var recover = $('#recoverform');
+    //用户名
+    var usernameElement = $("input[name='userName']");
+    var passwordElement = $("input[name='password']");
 	var speed = 400;
 
 	$('#to-recover').click(function(){
@@ -17,6 +20,18 @@ $(document).ready(function(){
 		recover.fadeTo(speed,0.01).css('z-index','100');
 		login.fadeTo(speed,1).css('z-index','200');
 	});
+
+    login.submit(function(){
+       if(usernameElement.val().trim()&&passwordElement.val().trim()){
+           return true;
+       }
+       if(!usernameElement.val().trim()){
+           usernameElement.focus();
+       }else{
+           passwordElement.focus();
+       }
+        return false;
+    });
     
     if($.browser.msie == true && $.browser.version.slice(0,3) < 10) {
         $('input[placeholder]').each(function(){ 

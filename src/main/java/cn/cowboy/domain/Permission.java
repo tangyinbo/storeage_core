@@ -11,7 +11,9 @@ public class Permission {
 	private Integer privId;
 	private String permission;
 	private String description;
-	private String stat;
+	private String stat="S0A";
+	private Integer parentPriv;
+	private String privUrl;
 	public Permission() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -24,12 +26,14 @@ public class Permission {
 		this.stat = stat;
 	}
 
-	public Permission(Integer privId, String permission, String description, String stat) {
+	public Permission(Integer privId, String permission, String description, String stat,Integer parentPriv,String privUrl) {
 		super();
 		this.privId = privId;
 		this.permission = permission;
 		this.description = description;
 		this.stat = stat;
+		this.parentPriv = parentPriv;
+		this.privUrl = privUrl;
 	}
 	public Integer getprivId() {
 		return privId;
@@ -54,6 +58,27 @@ public class Permission {
 	}
 	public void setStat(String stat) {
 		this.stat = stat;
+	}
+
+	public Integer getParentPriv() {
+		return parentPriv;
+	}
+
+	public void setParentPriv(Integer parentPriv) {
+		this.parentPriv = parentPriv;
+	}
+
+	public String getPrivUrl() {
+		return privUrl;
+	}
+
+	public void setPrivUrl(String privUrl) {
+		this.privUrl = privUrl;
+	}
+
+	@Override
+	public String toString() {
+		return this.privId+"->"+this.description+"->"+this.permission+"->"+this.privUrl+"->"+this.parentPriv+"->"+this.getStat();
 	}
 	
 

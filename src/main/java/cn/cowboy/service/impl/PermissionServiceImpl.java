@@ -1,5 +1,10 @@
 package cn.cowboy.service.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +22,11 @@ import cn.cowboy.service.PermissionService;
  */
 @Service(value = "permissionService")
 public class PermissionServiceImpl implements PermissionService {
+	private static final int DEFAULT_ANCESTORPRIVID = 0; // 默认最顶级的菜单id为0
+	private static final String PRIVID = "privId";
+	private static final String PRIVNAME = "privName";
+	private static final String PRIVURL = "privUrl";
+	private static final String SUBPRIV = "subPriv";
 	@Autowired
 	private PermissionMapper permissionMapper;
 
@@ -29,6 +39,40 @@ public class PermissionServiceImpl implements PermissionService {
 	@Override
 	public void deletePermission(Integer permissionId) {
 		permissionMapper.deletePermission(permissionId);
+	}
+
+	@Override
+	public List<Map<String, Object>> getPrivs() {
+		Integer parentPriv = 0;
+		List<Permission> privs = permissionMapper.getPrivs(parentPriv);
+		List<Map<String, Object>> privTree = getPrivTree(privs, DEFAULT_ANCESTORPRIVID);
+		return privTree;
+	}
+
+	/**
+	 * 
+	 * @Title: getPrivTree
+	 * @Description: TODO
+	 * @param @return
+	 * @return List<Map<String,Object>>
+	 * @author Tangyinbo
+	 * @date 2014-6-17 下午3:21:57
+	 * @throws
+	 */
+	private List<Map<String, Object>> getPrivTree(List<Permission> privs, int ancestorPrivId) {
+		List<Map<String, Object>> privTree = new ArrayList<Map<String, Object>>();
+		Map<String, Object> map = null;
+		for (Permission p : privs) {
+			if (p.getParentPriv() == ancestorPrivId) {
+				map=new HashMap<String, Object>();
+				map.put(PRIVID, p.getprivId());
+				map.put(PRIVNAME, p.getDescription());
+				map.put(PRIVURL, p.getPrivUrl());
+				map.put(SUBPRIV, getPrivTree(privs, p.getprivId()));
+				privTree.add(map);
+			}
+		}
+		return privTree;
 	}
 
 }
