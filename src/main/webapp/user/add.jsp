@@ -7,46 +7,51 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-	<div class="container-fluid" style="margin:0;padding:0">
-		<div class="row-fluid">
+<body style="margin:0;padding:0;">
+	<div class="container-fluid" style="margin:0;padding:0;">
+		<div class="row-fluid" style="margin:0;padding:0">
 			<div class="span12">
-				<div class="widget-box">
-					<!-- <div class="widget-title">
+				<div class="widget-box" >
+					<div class="widget-title">
 						<span class="icon"> <i class="icon-align-justify"></i> </span>
-						<h5>Text inputs</h5>
-					</div> -->
+						<h5>新增用户</h5>
+					</div>
 					<div class="widget-content nopadding">
 						<form action="#" method="get" class="form-horizontal" />
 						<div class="control-group">
-							<label class="control-label">Normal text input</label>
+							<label class="control-label">用户名:</label>
 							<div class="controls">
-								<input type="text" />
+								<input type="text" class="input-xxlarge"/> <span class="help-block">长度不少于6位</span>
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label">Password input</label>
+							<label class="control-label">真实姓名:</label>
 							<div class="controls">
-								<input type="password" />
+								<input type="text"  class="input-xxlarge" placeholder="This is a placeholder..." />
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label">Input with description</label>
+							<label class="control-label">邮箱:</label>
 							<div class="controls">
-								<input type="text" /> <span class="help-block">This is a
-									description</span>
+								<input type="text"  class="input-xxlarge" placeholder="This is a placeholder..." />
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label">Input with placeholder</label>
+							<label class="control-label">电话:</label>
 							<div class="controls">
-								<input type="text" placeholder="This is a placeholder..." />
+								<input type="text"  class="input-xxlarge" placeholder="This is a placeholder..." />
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label">Normal textarea</label>
+							<label class="control-label">年龄:</label>
 							<div class="controls">
-								<textarea></textarea>
+								<input type="text"  class="input-xxlarge" placeholder="This is a placeholder..." />
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">描述</label>
+							<div class="controls">
+								<textarea  class="input-xxlarge"></textarea>
 							</div>
 						</div>
 						<div class="form-actions">

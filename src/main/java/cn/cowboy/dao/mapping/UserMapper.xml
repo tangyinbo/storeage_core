@@ -9,18 +9,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="password" property="password" jdbcType="VARCHAR" />
 		<result column="salt" property="salt" jdbcType="VARCHAR" />
 		<result column="stat" property="stat" jdbcType="VARCHAR" />
+		<result column="real_name" property="realName" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="sex" property="sex" jdbcType="VARCHAR" />
+		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="description" property="description" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="base_users">
-		user_id,username,password,salt,stat
+		user_id,username,password,salt,stat,real_name,email,phone,sex,age,description
 	</sql>
 	<sql id="basin_users">
-		username,password,salt,stat
+		username,password,salt,stat,real_name,email,phone,sex,age,description
 	</sql>
 	
 	<insert id="addUser" useGeneratedKeys="true" keyProperty="userId" parameterType="User">
 		insert into t_sys_users(<include refid="basin_users"/>)
 		 values(
-			#{userName},#{password},#{salt},#{stat}
+			#{userName},#{password},#{salt},#{stat},#{realName},#{email},#{phone},#{sex},#{age},#{description}
 		)
 	</insert>
 	

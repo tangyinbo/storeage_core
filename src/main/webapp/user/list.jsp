@@ -7,14 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-	<div class="widget-box" style="border:1px solid blue">
+<body style="margin:0;padding:0">
+	<div class="widget-box" style="margin:0;padding:0">
 		<div class="widget-title">
 			<h5>用户列表</h5>
 			<button class="btn btn-primary btn-mini"><i class=" icon-search icon-white"></i> 查询</button>
 			<button class="btn btn-primary btn-mini"><i class="icon-pencil icon-white"></i> 修改</button>
 			<button class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i> 删除</button>
-			<a class="btn btn-primary btn-mini" href="${pageContext.request.contextPath }/user/add.jsp"><i class=" icon-pencil icon-white"></i> 新增</a>
+			<a class="btn btn-primary btn-mini" target="main_container" href="${pageContext.request.contextPath }/user/add.jsp"><i class=" icon-pencil icon-white"></i> 新增</a>
 		</div>
 		<div class="widget-content nopadding">
 			<table class="table table-bordered data-table">
@@ -72,8 +72,6 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
-	</div>
 	</div>
 </body>
 </html>

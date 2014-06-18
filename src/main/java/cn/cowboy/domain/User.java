@@ -14,10 +14,33 @@ public class User {
 	private String password;
 	private String salt;
 	private String stat="S0A";
+	private String realName;
+	private String email;
+	private String phone;
+	private String sex;
+	private Integer age;
+	private String description;
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+
+	public User(Integer userId, String userName, String password, String salt, String stat, String realName, String email, String phone, String sex, Integer age, String description) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.password = password;
+		this.salt = salt;
+		this.stat = stat;
+		this.realName = realName;
+		this.email = email;
+		this.phone = phone;
+		this.sex = sex;
+		this.age = age;
+		this.description = description;
+	}
+
 
 	public User(Integer userId, String userName, String password, String salt, String stat) {
 		super();
@@ -32,6 +55,39 @@ public class User {
 		this.userName = username;
 		this.password = password;
 	}
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
 
 	public Integer getUserId() {
 		return userId;
@@ -72,6 +128,26 @@ public class User {
 
 	public String getCredentialsSalt() {
 		return this.userName+this.salt;
+	}
+
+
+	public Integer getAge() {
+		return age;
+	}
+
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }

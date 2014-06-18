@@ -619,8 +619,8 @@ a:hover {
     border-left: 1px solid #CDCDCD;
     border-right: 1px solid #CDCDCD;
     clear: both;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     position: relative;
 }
 .widget-box.widget-calendar, .widget-box.widget-chat {
@@ -1310,9 +1310,9 @@ form {
 	margin-left: 200px;
 	padding: 10px 0;
 }
-.form-horizontal input[type=text], .form-horizontal input[type=password], .form-horizontal textarea {
+/* .form-horizontal input[type=text], .form-horizontal input[type=password], .form-horizontal textarea {
 	width: 80%;
-}
+} */
 .form-horizontal .form-actions {
 	margin-top: 0;
 	margin-bottom: 0;

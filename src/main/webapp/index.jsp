@@ -3,29 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ include file="/system/recommond.jsp" %>
+<%@ include file="/system/recommond.jsp"%>
 <html>
 <head>
 <title>Unicorn Admin</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript">
-	//iframe 自适应高度
-	function SetWinHeight(obj) {
-		var win = obj;
-		if (document.getElementById) {
-			if (win && !window.opera) {
-				if (win.contentDocument
-						&& win.contentDocument.body.offsetHeight){
-					win.height = win.contentDocument.body.offsetHeight+15;
-					}
-				else if (win.Document && win.Document.body.scrollHeight)
-					win.height = win.Document.body.scrollHeight;
-			}
-		}
-	}
-</script>
 </head>
 <body>
 
@@ -45,30 +29,24 @@
 	<div id="user-nav" class="navbar navbar-inverse">
 		<ul class="nav btn-group">
 			<li class="btn btn-inverse"><a title="" href="#"><i
-					class="icon icon-user"></i> <span class="text">账号设置</span> </a>
-			</li>
+					class="icon icon-user"></i> <span class="text">账号设置</span> </a></li>
 			<li class="btn btn-inverse dropdown" id="menu-messages"><a
 				href="#" data-toggle="dropdown" data-target="#menu-messages"
 				class="dropdown-toggle"><i class="icon icon-envelope"></i> <span
 					class="text">消息</span> <span class="label label-important">5</span>
 					<b class="caret"></b> </a>
 				<ul class="dropdown-menu">
-					<li><a class="sAdd" title="" href="#">new message</a>
-					</li>
-					<li><a class="sInbox" title="" href="#">inbox</a>
-					</li>
-					<li><a class="sOutbox" title="" href="#">outbox</a>
-					</li>
-					<li><a class="sTrash" title="" href="#">trash</a>
-					</li>
-				</ul></li>
-			<li class="btn btn-inverse"><a title="" href="#"><i
-					class="icon icon-cog"></i> <span class="text">设置</span> </a>
+					<li><a class="sAdd" title="" href="#">new message</a></li>
+					<li><a class="sInbox" title="" href="#">inbox</a></li>
+					<li><a class="sOutbox" title="" href="#">outbox</a></li>
+					<li><a class="sTrash" title="" href="#">trash</a></li>
+				</ul>
 			</li>
+			<li class="btn btn-inverse"><a title="" href="#"><i
+					class="icon icon-cog"></i> <span class="text">设置</span> </a></li>
 			<li class="btn btn-inverse"><a title=""
 				href="${pageContext.request.contextPath }/logout"><i
-					class="icon icon-share-alt"></i> <span class="text">注销</span> </a>
-			</li>
+					class="icon icon-share-alt"></i> <span class="text">注销</span> </a></li>
 		</ul>
 	</div>
 	<div id="sidebar">
@@ -76,8 +54,7 @@
 			主页</a>
 		<ul>
 			<li class="active"><a href="index.html"><i
-					class="icon icon-home"></i> <span>主页</span> </a>
-			</li>
+					class="icon icon-home"></i> <span>主页</span> </a></li>
 			<c:forEach items="${sessionScope.menuPriv }" var="priv">
 				<c:choose>
 					<c:when test="${fn:length(priv.subPriv)>0 }">
@@ -87,16 +64,13 @@
 							<ul>
 								<c:forEach items="${priv.subPriv}" var="subPriv">
 									<li><a href="${subPriv.privUrl }" target="main_container">${subPriv.privName
-											}</a>
-									</li>
+											}</a></li>
 								</c:forEach>
-							</ul>
-						</li>
+							</ul></li>
 					</c:when>
 					<c:otherwise>
 						<li><a href="buttons.html"><i class="icon icon-tint"></i>
-								<span>${priv.privName} &amp; icons</span> </a>
-						</li>
+								<span>${priv.privName} &amp; icons</span> </a></li>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
@@ -129,19 +103,19 @@
 				Home</a> <a href="#" class="current">Dashboard</a>
 		</div>
 		<div class="container-fluid">
-			<div class="row-fluid" >
+			<div class="row-fluid">
 				<div class="span12 center" style="text-align: center;">
 					<iframe name="main_container" src="/storeage_core/main.jsp"
-						scrolling="no" width="100%" onload="SetWinHeight(this)" marginwidth="0" marginheight="0"
-						frameborder="0"></iframe>
+						scrolling="no" width="100%" onload="SetWinHeight(this)"
+						marginwidth="0" marginheight="0" frameborder="0"></iframe>
 				</div>
 			</div>
-			<div class="row-fluid">
-				<div id="footer" class="span12">
-					2014 &copy; mysystem <a
-						href="https://wrapbootstrap.com/user/diablo9983">hello boy</a>
-				</div>
-			</div>
+		</div>
+	</div>
+	<div class="row-fluid" style="margin-top:50px">
+		<div id="footer" class="span12">
+			2014 &copy; mysystem <a
+				href="https://wrapbootstrap.com/user/diablo9983">hello boy</a>
 		</div>
 	</div>
 </body>

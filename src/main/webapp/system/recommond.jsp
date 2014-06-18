@@ -16,14 +16,35 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/static/style/main/unicorn.grey.css"
 	class="skin-color" />
-	<link rel="stylesheet"
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath }/static/style/common.css" />
 <%-- <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/static/style/main/uniform.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/static/style/main/select2.css" /> --%>
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0
+}
+</style>
 </head>
 <body>
+	<script type="text/javascript">
+		//iframe 自适应高度
+		function SetWinHeight(obj) {
+			var win = obj;
+			if (document.getElementById) {
+				if (win && !window.opera) {
+					if (win.contentDocument
+							&& win.contentDocument.body.offsetHeight) {
+						win.height = win.contentDocument.body.offsetHeight;
+					} else if (win.Document && win.Document.body.scrollHeight)
+						win.height = win.Document.body.scrollHeight;
+				}
+			}
+		}
+	</script>
 	<script
 		src="${pageContext.request.contextPath }/static/script/main/excanvas.min.js"></script>
 	<script
@@ -48,5 +69,6 @@
 	<script src="${pageContext.request.contextPath }/static/script/main/select2.min.js"></script>
 	<script src="${pageContext.request.contextPath }/static/script/main/jquery.dataTables.min.js"></script>
 	<script src="${pageContext.request.contextPath }/static/script/main/unicorn.tables.js"></script> --%>
+
 </body>
 </html>
