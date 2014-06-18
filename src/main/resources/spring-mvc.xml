@@ -9,6 +9,12 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
+  <!--   <mvc:interceptors>
+    	<mvc:interceptor>
+    		<mvc:mapping path="/**"/>
+    		<ref bean="interceptor1"/>
+    	</mvc:interceptor>
+    </mvc:interceptors> -->
 	<mvc:annotation-driven />
 	<!-- 开启controller注解支持 -->
 	<!-- 注意事项请参考：http://jinnianshilongnian.iteye.com/blog/1762632 -->
@@ -41,6 +47,9 @@
 			</props>
 		</property>
 	</bean>
+	
+	<!-- 拦截器 -->
+	<!-- <bean id="interceptor1" class="cn.cowboy.provide.filter.HandlerInterceptor1"></bean> -->
 
 	<import resource="classpath:spring-mvc-shiro.xml" />
 

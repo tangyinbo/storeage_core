@@ -42,4 +42,9 @@
 	<welcome-file-list>
 		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>
+	<!-- shiro 会话过期 -->
+	<error-page>
+		<exception-type>org.apache.shiro.session.InvalidSessionException</exception-type>
+		<location>/invalidSession.jsp</location>
+	</error-page>
 </web-app>

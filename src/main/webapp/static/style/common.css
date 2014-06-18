@@ -1,0 +1,8 @@
+.widget-title button,.widget-title a {
+    float: right;
+    font-weight: bold;
+    padding: 5px;
+    line-height: 12px;
+    margin-top:4px;
+    margin-right:5px;
+}
