@@ -15,7 +15,7 @@ import cn.cowboy.service.UserService;
 
 
 
-@RequestMapping("/user")
+@RequestMapping("/system/user")
 @Controller
 public class UserController {
 	private static final Logger log = LoggerFactory.getLogger(UserController.class);
@@ -32,5 +32,22 @@ public class UserController {
 		user.setPassword("123456");
 		userService.createUser(user);
 		return "first";
+	}
+	
+	/**
+	 * 
+	* @Title: creatUser 
+	* @Description: 创建用户
+	* @param @return   
+	* @return String  
+	* @author Tangyinbo   
+	* @date 2014-6-19 下午3:19:35
+	* @throws
+	 */
+	@RequiresPermissions(value={"system:user:create"})
+	@RequestMapping("/create")
+	public String creatUser(User user){
+		userService.createUser(user);
+		return "index";
 	}
 }

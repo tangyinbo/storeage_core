@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>add user</title>
 </head>
 <body style="margin:0;padding:0;">
 	<div class="container-fluid" style="margin:0;padding:0;">
@@ -17,41 +17,41 @@
 						<h5>新增用户</h5>
 					</div>
 					<div class="widget-content nopadding">
-						<form action="#" method="get" class="form-horizontal" />
+						<form action="${pageContext.request.contextPath }/system/user/create" method="post" class="form-horizontal" />
 						<div class="control-group">
 							<label class="control-label">用户名:</label>
 							<div class="controls">
-								<input type="text" class="input-xxlarge"/> <span class="help-block">长度不少于6位</span>
+								<input type="text" class="input-xxlarge" name="userName"/> <span class="help-block">长度不少于6位</span>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">真实姓名:</label>
 							<div class="controls">
-								<input type="text"  class="input-xxlarge" placeholder="This is a placeholder..." />
+								<input type="text" name="realName" class="input-xxlarge" placeholder="This is a placeholder..." />
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">邮箱:</label>
 							<div class="controls">
-								<input type="text"  class="input-xxlarge" placeholder="This is a placeholder..." />
+								<input type="text" name="email" class="input-xxlarge" placeholder="This is a placeholder..." />
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">电话:</label>
 							<div class="controls">
-								<input type="text"  class="input-xxlarge" placeholder="This is a placeholder..." />
+								<input type="text"  name="phone" class="input-xxlarge" placeholder="This is a placeholder..." />
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">年龄:</label>
 							<div class="controls">
-								<input type="text"  class="input-xxlarge" placeholder="This is a placeholder..." />
+								<input type="text" name="age" class="input-xxlarge" placeholder="This is a placeholder..." />
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">描述</label>
 							<div class="controls">
-								<textarea  class="input-xxlarge"></textarea>
+								<textarea name="description" class="input-xxlarge"></textarea>
 							</div>
 						</div>
 						<div class="form-actions">

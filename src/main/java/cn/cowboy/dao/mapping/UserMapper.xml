@@ -61,8 +61,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="findPermissions" parameterType="string" resultType="string">
 		select p.permission from t_sys_users u inner join t_sys_userrole ur on u.user_id = ur.user_id
-									left join t_sys_rolepriv rp on ur.role_id = rp.role_id
-									left join t_sys_priv p on rp.priv_id = p.priv_id
+									inner join t_sys_rolepriv rp on ur.role_id = rp.role_id
+									inner join t_sys_priv p on rp.priv_id = p.priv_id
 		where u.username=#{userName} 
 	</select>
 	

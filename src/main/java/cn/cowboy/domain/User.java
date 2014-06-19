@@ -11,7 +11,7 @@ package cn.cowboy.domain;
 public class User {
 	private Integer userId;
 	private String userName;
-	private String password;
+	private String password="123456";
 	private String salt;
 	private String stat="S0A";
 	private String realName;

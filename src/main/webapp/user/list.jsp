@@ -6,16 +6,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="${pageContext.request.contextPath }/static/script/system/pagination.js"></script>
 </head>
 <body style="margin:0;padding:0">
 	<div class="widget-box" style="margin:0;padding:0">
 		<div class="widget-title">
 			<h5>用户列表</h5>
-			<button class="btn btn-primary btn-mini"><i class=" icon-search icon-white"></i> 查询</button>
-			<button class="btn btn-primary btn-mini"><i class="icon-pencil icon-white"></i> 修改</button>
-			<button class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i> 删除</button>
-			<a class="btn btn-primary btn-mini" target="main_container" href="${pageContext.request.contextPath }/user/add.jsp"><i class=" icon-pencil icon-white"></i> 新增</a>
+			<button class="btn btn-primary btn-mini">
+				<i class=" icon-search icon-white"></i> 查询
+			</button>
+			<button class="btn btn-primary btn-mini">
+				<i class="icon-pencil icon-white"></i> 修改
+			</button>
+			<button class="btn btn-danger btn-mini">
+				<i class="icon-remove icon-white"></i> 删除
+			</button>
+			<a class="btn btn-primary btn-mini" target="main_container"
+				href="${pageContext.request.contextPath }/user/add.jsp"><i
+				class=" icon-pencil icon-white"></i> 新增</a>
 		</div>
+		<form id="page_formId" name="ttttt"></form>
 		<div class="widget-content nopadding">
 			<table class="table table-bordered data-table">
 				<thead>
@@ -72,6 +82,7 @@
 				</tbody>
 			</table>
 		</div>
+		<page:pagination formName="formName"></page:pagination>
 	</div>
 </body>
 </html>
