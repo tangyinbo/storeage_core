@@ -25,60 +25,42 @@
 				href="${pageContext.request.contextPath }/user/add.jsp"><i
 				class=" icon-pencil icon-white"></i> 新增</a>
 		</div>
-		<form id="page_formId" name="ttttt"></form>
+		<form id="page_form" action="${pageContext.request.contextPath }/system/user/list" name="ttttt">
+			<input type="hidden" name="page" value="1"/>
+		</form>
 		<div class="widget-content nopadding">
 			<table class="table table-bordered data-table">
 				<thead>
 					<tr>
-						<th>Rendering engine</th>
-						<th>Browser</th>
-						<th>Platform(s)</th>
-						<th>Engine version</th>
+						<th>用户帐号</th>
+						<th>用户姓名</th>
+						<th>性别</th>
+						<th>电话</th>
+						<th>邮箱</th>
+						<th>状态</th>
+						<th>描述</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="gradeX">
-						<td>Trident</td>
-						<td>Internet Explorer 4.0</td>
-						<td>Win 95+</td>
-						<td class="center">4</td>
+				<c:forEach items="${users}" var="item">
+				<tr class="gradeX">
+						<td>${item.userName }</td>
+						<td>${item.realName}</td>
+						<td>${item.realName }</td>
+						<td>${item.phone }</td>
+						<td>${item.email }</td>
+						<td>${item.salt }</td>
+						<td>${item.description }:
+						${pagination.firstPage },
+						${pagination.hasFrontPage },
+						
+						${pagination.currentPage },
+						${pagination.hasNextPage },
+						${pagination.lastPage }
+						</td>
 					</tr>
-					<tr class="gradeC">
-						<td>Trident</td>
-						<td>Internet Explorer 5.0</td>
-						<td>Win 95+</td>
-						<td class="center">5</td>
-					</tr>
-					<tr class="gradeA">
-						<td>Trident</td>
-						<td>Internet Explorer 5.5</td>
-						<td>Win 95+</td>
-						<td class="center">5.5</td>
-					</tr>
-					<tr class="gradeA">
-						<td>Trident</td>
-						<td>Internet Explorer 6</td>
-						<td>Win 98+</td>
-						<td class="center">6</td>
-					</tr>
-					<tr class="gradeA">
-						<td>Trident</td>
-						<td>Internet Explorer 7</td>
-						<td>Win XP SP2+</td>
-						<td class="center">7</td>
-					</tr>
-					<tr class="gradeA">
-						<td>Trident</td>
-						<td>AOL browser (AOL desktop)</td>
-						<td>Win XP</td>
-						<td class="center">6</td>
-					</tr>
-					<tr class="gradeA">
-						<td>Gecko</td>
-						<td>Firefox 1.0</td>
-						<td>Win 98+ / OSX.2+</td>
-						<td class="center">1.7</td>
-					</tr>
+				</c:forEach>
+					
 				</tbody>
 			</table>
 		</div>

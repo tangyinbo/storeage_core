@@ -6,13 +6,12 @@
 			currentPate:"page_corrent",
 			nextPage:"page_next",
 			lastpage:"page_last",
-			formNameId:"page_formId"
+			formNameId:"page_form"
 	};
-	
 	//获取formName;
 	function getFormName(){
 		var eventForm = $("#"+$.page.formNameId);
-		if(typeof(formElent)=='undefined' )
+		if(typeof(eventForm)=='undefined' )
 			throw ' 默认的表单名称 page_formName  id 不存在';
 		return eventForm;
 	};
@@ -22,7 +21,7 @@
 	}
 	$("#"+$.page.firstPage).live('click',function(){
 		var eventForm =getFormName();
-		alert(eventForm.attr('name'));
+		eventForm.submit();
 	});
 	$("#"+$.page.frontPage).live('click',function(){
 		

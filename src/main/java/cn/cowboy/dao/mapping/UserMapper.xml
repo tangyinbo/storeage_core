@@ -19,6 +19,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<sql id="base_users">
 		user_id,username,password,salt,stat,real_name,email,phone,sex,age,description
 	</sql>
+	<sql id="base_users_select">
+		user_id,username,stat,real_name,email,phone,sex,age,description
+	</sql>
 	<sql id="basin_users">
 		username,password,salt,stat,real_name,email,phone,sex,age,description
 	</sql>
@@ -74,4 +77,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 	</select>
 	
+	<select id="selectUsers" parameterType="User" resultMap="User">
+		select <include refid="base_users_select"/> from t_sys_users limit #{nextRows},#{showCount}
+	</select>
+	
+	<select id="selectUserCount" resultType="int">
+		select count(*) from t_sys_users;
+	</select>
 </mapper>

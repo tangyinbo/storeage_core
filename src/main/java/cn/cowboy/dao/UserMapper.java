@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 import cn.cowboy.domain.User;
+import cn.cowboy.provide.common.Pagination;
 /**
  * 
 * @ClassName: UserMapper
@@ -29,4 +30,9 @@ public interface UserMapper {
 	public Set<String> findPermissions(String username);
 
 	public Set<String> findRoles(String username);
+
+	public List<User> selectUsers(Pagination pagination);
+
+	public int selectUserCount();
+
 }

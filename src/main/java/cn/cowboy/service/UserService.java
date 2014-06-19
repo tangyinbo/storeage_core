@@ -1,8 +1,10 @@
 package cn.cowboy.service;
 
+import java.util.List;
 import java.util.Set;
 
 import cn.cowboy.domain.User;
+import cn.cowboy.provide.common.Pagination;
 
 public interface UserService {
 	public User createUser(User user); // 创建账户
@@ -18,4 +20,6 @@ public interface UserService {
 	public Set<String> findRoles(String username);// 根据用户名查找其角色
 
 	public Set<String> findPermissions(String username); // 根据用户名查找其权限
+
+	public List<User> selectUsers(Pagination pagination);
 }

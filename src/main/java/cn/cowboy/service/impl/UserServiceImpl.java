@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import cn.cowboy.dao.UserMapper;
 import cn.cowboy.domain.User;
+import cn.cowboy.provide.common.Pagination;
 import cn.cowboy.service.UserService;
 import cn.cowboy.shiro.provide.PasswordHelper;
 
@@ -87,5 +88,15 @@ public class UserServiceImpl implements UserService{
 			userRoles.add(userRole);
 		}
 		return userRoles;
+	}
+
+
+	@Override
+	public List<User> selectUsers(Pagination pagination) {
+		int count = userMapper.selectUserCount();
+		pagination.setRowCount(count);
+		pagination.setCurrentPage(pagination.getCurrentPage());
+		List<User> users =userMapper.selectUsers(pagination);
+		return users;
 	}
 }
