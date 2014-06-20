@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 <link type="text/css"
 	href="${pageContext.request.contextPath }/static/style/jstree/style.min.css">
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath }/static/script/jstree/jstree.js"></script>
 </head>
 <body style="margin:0;padding:0">
 	<div class="widget-box" style="margin:0;padding:0">
@@ -15,41 +17,38 @@
 			<h5>用户列表</h5>
 		</div>
 		<div class="widget-content nopadding">
-			<div id="jstree_demo_div"></div>
+			<div id="jstree2" class="demo" style="margin-top:2em;"></div>
+			<script>
+				$(function() {
+					$('#jstree2').jstree({
+						'plugins' : [ "wholerow", "checkbox" ],
+						'core' : {
+							'data' : [ {
+								"text" : "Same but with checkboxes",
+								"children" : [ {
+									"text" : "initially selected",
+									"state" : {
+										"selected" : true
+									}
+								}, {
+									"text" : "custom icon URL",
+									"icon" : "http://jstree.com/tree-icon.png"
+								}, {
+									"text" : "initially open",
+									"state" : {
+										"opened" : true
+									},
+									"children" : [ "Another node" ]
+								}, {
+									"text" : "custom icon class",
+									"icon" : "glyphicon glyphicon-leaf"
+								} ]
+							}, "And wholerow selection" ]
+						}
+					});
+				});
+			</script>
 		</div>
 	</div>
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath }/static/script/jstree/jstree.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			$('#jstree_demo_div').jstree();
-			$('#jstree_demo_div').jstree({
-				'plugins' : [ "wholerow", "checkbox" ],
-				'core' : {
-					'data' : [ {
-						"text" : "Same but with checkboxes",
-						"children" : [ {
-							"text" : "initially selected",
-							"state" : {
-								"selected" : true
-							}
-						}, {
-							"text" : "custom icon URL",
-							"icon" : "http://jstree.com/tree-icon.png"
-						}, {
-							"text" : "initially open",
-							"state" : {
-								"opened" : true
-							},
-							"children" : [ "Another node" ]
-						}, {
-							"text" : "custom icon class",
-							"icon" : "glyphicon glyphicon-leaf"
-						} ]
-					}, "And wholerow selection" ]
-				}
-			});
-		});
-	</script>
 </body>
 </html>
