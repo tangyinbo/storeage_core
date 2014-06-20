@@ -27,8 +27,8 @@
 				class=" icon-pencil icon-white"></i> 新增</a>
 		</div>
 		<form id="page_form"
-			action="${pageContext.request.contextPath }/system/user/list"
-			name="user_form">
+			action="${pageContext.request.contextPath }/system/priv/list"
+			name="priv_form">
 			<input type="hidden" name="page" id="page" value="${empty pagination?1:pagination.currentPage}" />
 			<input type="hidden" id="page_count" value="${empty pagination?1:pagination.pageCount}" />
 		</form>
@@ -36,34 +36,34 @@
 			<table class="table table-bordered data-table">
 				<thead>
 					<tr>
-						<th>用户帐号</th>
-						<th>用户姓名</th>
-						<th>性别</th>
-						<th>电话</th>
-						<th>邮箱</th>
-						<th>状态</th>
+						<th>权限ID</th>
+						<th>permission</th>
+						<th>父级权限</th>
+						<th>权限URL</th>
+						<th>权限类别</th>
 						<th>描述</th>
+						<th>状态</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${users}" var="item">
+					<c:forEach items="${privs}" var="item">
 						<tr class="gradeX">
-							<td>${item.userName }</td>
-							<td>${item.realName}</td>
-							<td>${item.sex }</td>
-							<td>${item.phone }</td>
-							<td>${item.email }</td>
-							<td>${item.salt }</td>
+							<td>${item.privId }</td>
+							<td>${item.permission}</td>
+							<td>${item.parentPriv }</td>
+							<td>${item.privUrl }</td>
+							<td>${item.type }</td>
 							<td>${item.description }</td>
+							<td>${item.stat }</td>
 						</tr>
 					</c:forEach>
-					<c:if test="${empty users || fn:length(users)==0 }">
+					<c:if test="${empty privs || fn:length(privs)==0 }">
 						<tr>
-							<td colspan="7">
-								<c:if test="${empty users}">
+							<td colspan="6">
+								<c:if test="${empty privs}">
 									<div  style="text-align: center">请先执行查询</div>
 								</c:if>
-								<c:if test="${!empty users&&fn:length(users)==0}">
+								<c:if test="${!empty privs&&fn:length(privs)==0}">
 									<div style="text-align: center">当前查询条件无记录</div>
 								</c:if>
 							</td>
@@ -72,7 +72,7 @@
 				</tbody>
 			</table>
 		</div>
-		<c:if test="${!empty users && fn:length(users)>0 }">
+		<c:if test="${!empty privs && fn:length(privs)>0 }">
 			<page:pagination formName="formName"></page:pagination>
 		</c:if>
 	</div>

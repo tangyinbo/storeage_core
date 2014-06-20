@@ -10,20 +10,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="stat" property="stat" jdbcType="VARCHAR" />
 		<result column="parent_priv" property="parentPriv" jdbcType="INTEGER" />
 		<result column="priv_url" property="privUrl" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="base_priv">
 		priv_id,
 		<include refid="basin_priv" />
 	</sql>
 	<sql id="basin_priv">
-		permission,description,stat,parent_priv,priv_url
+		permission,description,stat,parent_priv,priv_url,type
 	</sql>
 	<insert id="createPermission" useGeneratedKeys="true"
 		keyProperty="privId" parameterType="Permission">
 		insert into t_sys_priv(
 		<include refid="basin_priv" />
 		)
-		values(#{permission},#{description},#{stat},#{parentPriv},#{privUrl})
+		values(#{permission},#{description},#{stat},#{parentPriv},#{privUrl},#{type})
 	</insert>
 
 	<insert id="deletePermission" parameterType="int">
@@ -37,5 +38,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		union all
 		select t1.* from t_sys_priv t inner join t_sys_priv t1 on t1.parent_priv =
 		t.priv_id and t.parent_priv=#{privId} and t.type='menu'
+	</select>
+	
+	<select id="selectPermissions" parameterType="Pagination" resultMap="Permission">
+		select <include refid="base_priv"/> from  t_sys_priv limit #{nextRows},#{showCount}
+	</select>
+	
+	<select id="selectPermissionsCount" resultType="int">
+		select count(*) from t_sys_priv;
 	</select>
 </mapper>

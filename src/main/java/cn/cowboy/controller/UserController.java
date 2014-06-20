@@ -24,6 +24,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@RequiresPermissions(value={"system:user:list"})
 	@RequestMapping(value="/list")
 	public String list(int page,Model model){
 		Pagination pagination = new Pagination();

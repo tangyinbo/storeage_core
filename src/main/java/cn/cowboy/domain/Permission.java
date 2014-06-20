@@ -14,6 +14,7 @@ public class Permission {
 	private String stat="S0A";
 	private Integer parentPriv;
 	private String privUrl;
+	private String type;
 	public Permission() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -35,12 +36,15 @@ public class Permission {
 		this.parentPriv = parentPriv;
 		this.privUrl = privUrl;
 	}
-	public Integer getprivId() {
+	
+	public Integer getPrivId() {
 		return privId;
 	}
-	public void setprivId(Integer privId) {
+
+	public void setPrivId(Integer privId) {
 		this.privId = privId;
 	}
+
 	public String getPermission() {
 		return permission;
 	}
@@ -80,6 +84,13 @@ public class Permission {
 	public String toString() {
 		return this.privId+"->"+this.description+"->"+this.permission+"->"+this.privUrl+"->"+this.parentPriv+"->"+this.getStat();
 	}
-	
 
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 }

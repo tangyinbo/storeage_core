@@ -95,7 +95,6 @@ public class UserServiceImpl implements UserService{
 	public List<User> selectUsers(Pagination pagination) {
 		int count = userMapper.selectUserCount();
 		pagination.setRowCount(count);
-		pagination.setCurrentPage(pagination.getCurrentPage());
 		List<User> users =userMapper.selectUsers(pagination);
 		return users;
 	}

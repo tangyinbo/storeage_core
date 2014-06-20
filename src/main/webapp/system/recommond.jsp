@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="page" uri="/WEB-INF/taglib/pagination.tld" %>
+<%@ taglib prefix="dict" uri="/WEB-INF/taglib/dict.tld" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -50,7 +52,7 @@
 	<script
 		src="${pageContext.request.contextPath }/static/script/main/excanvas.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath }/static/script/common/jquery-1.8.3.js"></script>
+		src="${pageContext.request.contextPath }/static/script/common/jquery-1.10.2.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath }/static/script/common/jquery-ui-1.9.2.custom.js"></script>
 	<script

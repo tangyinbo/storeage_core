@@ -1,5 +1,6 @@
 package cn.cowboy.service.impl;
 
+import java.security.Permissions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import cn.cowboy.dao.PermissionMapper;
 import cn.cowboy.domain.Permission;
+import cn.cowboy.provide.common.Pagination;
 import cn.cowboy.service.PermissionService;
 
 /**
@@ -65,14 +67,21 @@ public class PermissionServiceImpl implements PermissionService {
 		for (Permission p : privs) {
 			if (p.getParentPriv() == ancestorPrivId) {
 				map=new HashMap<String, Object>();
-				map.put(PRIVID, p.getprivId());
+				map.put(PRIVID, p.getPrivId());
 				map.put(PRIVNAME, p.getDescription());
 				map.put(PRIVURL, p.getPrivUrl());
-				map.put(SUBPRIV, getPrivTree(privs, p.getprivId()));
+				map.put(SUBPRIV, getPrivTree(privs, p.getPrivId()));
 				privTree.add(map);
 			}
 		}
 		return privTree;
+	}
+
+	@Override
+	public List<Permission> selectList(Pagination pagination) {
+		int count = permissionMapper.selectPermissionsCount();
+		pagination.setRowCount(count);
+		return permissionMapper.selectPermissions(pagination);
 	}
 
 }

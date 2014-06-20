@@ -29,7 +29,7 @@ public class Pagination {
 		this.currentPage = currentPage;
 	}
 	public boolean isHasNextPage() {
-		return (this.currentPage-1)<this.getPageCount()?true:false;
+		return (this.currentPage)<this.getPageCount()?true:false;
 	}
 	public void setHasNextPage(boolean hasNextPage) {
 		this.hasNextPage = hasNextPage;
@@ -41,7 +41,7 @@ public class Pagination {
 		this.hasFrontPage = hasFrontPage;
 	}
 	public Integer getPageCount() {
-		return ((this.rowCount+this.showCount)/this.showCount);
+		return ((this.rowCount+this.showCount-1)/this.showCount);
 	}
 	public void setPageCount(Integer pageCount) {
 		this.pageCount = pageCount;
@@ -66,7 +66,7 @@ public class Pagination {
 		this.nextRows = nextRows;
 	}
 	public boolean isFirstPage() {
-		return currentPage==2?true:firstPage;
+		return currentPage==1?true:firstPage;
 	}
 	public void setFirstPage(boolean firstPage) {
 		this.firstPage = firstPage;

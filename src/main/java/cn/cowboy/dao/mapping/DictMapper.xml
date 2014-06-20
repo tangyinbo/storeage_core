@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cowboy.dao.DictMapper">
+	<resultMap type="StoreDict" id="StoreDict">
+		<id property="dictId" column="dict_id" jdbcType="INTEGER" />
+		<result property="dictTypeId" column="dict_typeId" jdbcType="VARCHAR" />
+		<result property="dictName" column="dict_name" jdbcType="VARCHAR" />
+		<result property="stat" column="stat" jdbcType="VARCHAR" />
+		<result property="description" column="description" jdbcType="VARCHAR" />
+		<result property="seq" column="seq" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<sql id="base_dicts">
+		dict_id,dict_typeId,dict_name,description,seq,stat
+	</sql>
+	
+	<select id="selectDicts" resultMap="StoreDict">
+		select <include refid="base_dicts"/> from t_sys_dict;
+	</select>
+	
+	<insert id="createDict" parameterType="StoreDict">
+		insert into t_sys_dict(<include refid="base_dicts"/>) values(#{dictId},#{dictTypeId},#{dictName},#{description},#{seq},#{stat});
+	</insert>
+	
+</mapper>
