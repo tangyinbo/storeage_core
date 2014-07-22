@@ -73,12 +73,12 @@ public class BaseTest {
 		System.out.println(r1);
 		System.out.println(r2);
 		// 3、关联角色-权限
-		roleService.correlationPermissions(r1.getRoleId(), p1.getprivId());
-		roleService.correlationPermissions(r1.getRoleId(), p2.getprivId());
-		roleService.correlationPermissions(r1.getRoleId(), p3.getprivId());
+		roleService.correlationPermissions(r1.getRoleId(), p1.getPrivId());
+		roleService.correlationPermissions(r1.getRoleId(), p2.getPrivId());
+		roleService.correlationPermissions(r1.getRoleId(), p3.getPrivId());
 
-		roleService.correlationPermissions(r2.getRoleId(), p1.getprivId());
-		roleService.correlationPermissions(r2.getRoleId(), p2.getprivId());
+		roleService.correlationPermissions(r2.getRoleId(), p1.getPrivId());
+		roleService.correlationPermissions(r2.getRoleId(), p2.getPrivId());
 
 		userService.createUser(u1);
 		userService.createUser(u2);

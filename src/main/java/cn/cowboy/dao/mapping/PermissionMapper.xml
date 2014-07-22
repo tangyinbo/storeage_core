@@ -44,6 +44,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select <include refid="base_priv"/> from  t_sys_priv limit #{nextRows},#{showCount}
 	</select>
 	
+	<select id="getJsTree" resultMap="Permission">
+		select priv_id,parent_priv,description from t_sys_priv
+	</select>
+	
 	<select id="selectPermissionsCount" resultType="int">
 		select count(*) from t_sys_priv;
 	</select>

@@ -9,7 +9,7 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/static/script/system/pagination.js"></script>
 </head>
-<body style="margin:0;padding:0">
+<body style="margin:0;padding:0;background-color: white;">
 	<div class="widget-box" style="margin:0;padding:0">
 		<div class="widget-title">
 			<h5>用户列表</h5>

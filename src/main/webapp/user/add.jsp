@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>add user</title>
 </head>
-<body style="margin:0;padding:0;">
+<body style="margin:0;padding:0;background-color: white">
 	<div class="container-fluid" style="margin:0;padding:0;">
 		<div class="row-fluid" style="margin:0;padding:0">
 			<div class="span12">

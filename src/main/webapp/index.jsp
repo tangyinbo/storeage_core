@@ -102,10 +102,10 @@
 			<a href="#" title="导航" class="tip-bottom"><i class="icon-home"></i>
 				Home</a> <a href="#" class="current">Dashboard</a>
 		</div>
-		<div class="container-fluid">
-			<div class="row-fluid">
+		<div class="container-fluid" >
+			<div class="row-fluid" >
 				<div class="span12 center" style="text-align: center;">
-					<iframe name="main_container" src="/storeage_core/main.jsp"
+					<iframe name="main_container" id="main_container" src="/storeage_core/main.jsp"
 						scrolling="no" width="100%" onload="SetWinHeight(this)"
 						marginwidth="0" marginheight="0" frameborder="0"></iframe>
 				</div>

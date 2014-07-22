@@ -5,6 +5,7 @@ import java.util.List;
 
 import cn.cowboy.domain.Permission;
 import cn.cowboy.provide.common.Pagination;
+import cn.cowboy.provide.utils.JsTreeHelper;
 
 public interface PermissionMapper {
 
@@ -17,4 +18,6 @@ public interface PermissionMapper {
 	public List<Permission> selectPermissions(Pagination pagination);
 
 	public int selectPermissionsCount();
+
+	public List<Permission> getJsTree();
 }

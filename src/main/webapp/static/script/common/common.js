@@ -4,5 +4,5 @@
 		var reg = /(^\s+)|(\s+$)/g;
 		return this.replace(reg, "");
 	}
-	
+
 })(jQuery);
